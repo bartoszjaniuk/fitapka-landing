@@ -1,0 +1,27 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "N3Q4M5VM5L.com.i3artosh.rnstarter"
+        ],
+        "components": [
+          {
+            "/": "*",
+            "comment": "Matches all routes"
+          }
+        ]
+      }
+    ]
+  },
+  "activitycontinuation": {
+    "apps": [
+      "N3Q4M5VM5L.com.i3artosh.rnstarter"
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "N3Q4M5VM5L.com.i3artosh.rnstarter"
+    ]
+  }
+}
