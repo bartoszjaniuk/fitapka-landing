@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--primary: #bfff41;
+	--bg: #191a1e;
+	--textColor: #ebeff8;
+}
+
+* {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	max-width: 100vw;
+	overflow-x: hidden;
+	font-family: "Playfair Display", sans-serif;
+	background-color: #191a1e;
+	color: var(--textColor);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+::-moz-selection {
+	/* Code for Firefox */
+	color: var(--bg);
+	background: var(--primary);
+}
+
+::selection {
+	color: var(--bg);
+	background: var(--primary);
+}
+
+@layer components {
+	.responsive-padding {
+		@apply px-6 lg:px-12 xl:px-1;
+	}
+
+	.responsive-padding-screen {
+		@apply px-6 lg:px-12 xl:px-44;
+	}
+
+	.screen-h-navbar {
+		height: calc(100vh - 95px);
+	}
+	.social {
+		@apply hidden lg:flex gap-3 flex-1 items-center;
+	}
+
+	.social-mobile {
+		@apply flex gap-3 flex-1 items-center h-28 max-h-16;
+	}
+	.links {
+		@apply hidden lg:flex  text-base gap-8 lg:text-xl lg:gap-5;
+	}
+
+	.logo {
+		@apply text-2xl lg:text-3xl xl:text-3xl;
+	}
+
+	.burger {
+		@apply flex w-10 h-[30px] lg:hidden flex-col items-end justify-between bg-transparent p-1 cursor-pointer;
+	}
+
+	.opened {
+		overflow-x: hidden;
+		transition: transform 2s ease;
+		&:first-child {
+			transform: translateY(10px) rotate(45deg);
+		}
+
+		&:nth-child(2) {
+			opacity: 0;
+			transition: opacity 0.2s ease, transform 0.2s ease;
+			transform: translateX(0);
+		}
+
+		&:last-child {
+			transform: translateY(-10px) rotate(-45deg);
+		}
+	}
+
+	.line {
+		@apply h-[2px] w-full bg-gray-900;
+		transition: opacity 0.2s 0.2s ease, transform 0.2s 0.2s ease;
+
+		&:nth-child(2) {
+			transition: opacity 0.2s 0.2s ease, transform 0.2s 0.2s ease;
+			width: 60%;
+		}
+	}
+
+	.video-bg {
+		@apply absolute top-0 left-0 h-full w-full z-[-1] opacity-[0.15] overflow-hidden;
+	}
+}
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 0 0% 3.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 0 0% 3.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 0 0% 3.9%;
+		--primary: 0 0% 9%;
+		--primary-foreground: 0 0% 98%;
+		--secondary: 0 0% 96.1%;
+		--secondary-foreground: 0 0% 9%;
+		--muted: 0 0% 96.1%;
+		--muted-foreground: 0 0% 45.1%;
+		--accent: 0 0% 96.1%;
+		--accent-foreground: 0 0% 9%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 0 0% 89.8%;
+		--input: 0 0% 89.8%;
+		--ring: 0 0% 3.9%;
+		--chart-1: 12 76% 61%;
+		--chart-2: 173 58% 39%;
+		--chart-3: 197 37% 24%;
+		--chart-4: 43 74% 66%;
+		--chart-5: 27 87% 67%;
+		--radius: 0.5rem;
+	}
+	.dark {
+		--background: 0 0% 3.9%;
+		--foreground: 0 0% 98%;
+		--card: 0 0% 3.9%;
+		--card-foreground: 0 0% 98%;
+		--popover: 0 0% 3.9%;
+		--popover-foreground: 0 0% 98%;
+		--primary: 0 0% 98%;
+		--primary-foreground: 0 0% 9%;
+		--secondary: 0 0% 14.9%;
+		--secondary-foreground: 0 0% 98%;
+		--muted: 0 0% 14.9%;
+		--muted-foreground: 0 0% 63.9%;
+		--accent: 0 0% 14.9%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 0 0% 14.9%;
+		--input: 0 0% 14.9%;
+		--ring: 0 0% 83.1%;
+		--chart-1: 220 70% 50%;
+		--chart-2: 160 60% 45%;
+		--chart-3: 30 80% 55%;
+		--chart-4: 280 65% 60%;
+		--chart-5: 340 75% 55%;
+	}
+}
