@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Input } from "../../components/Input/Input";
 import * as React from "react";
+import { useEffect } from "react";
 
 const BASE_URL = "http://3.79.57.202";
 const ACTIVATE_ACCOUNT = "api/user/activate";
@@ -76,9 +77,16 @@ export const ActivateAccountView = ({
 		reset();
 	});
 
+	useEffect(() => {
+		if (token && email) {
+			console.log("Przekierowanie");
+			window.location.href = `fitapka://?token=${token}&email=${email}`;
+		}
+	}, [token, email]);
+
 	return (
 		<form className="flex flex-col gap-4" onSubmit={onSubmit}>
-			<button
+			{/* <button
 				onClick={() =>
 					(window.location.href = `fitapka://?token=${token}&email=${email}`)
 				}
@@ -86,7 +94,7 @@ export const ActivateAccountView = ({
 				type="button"
 			>
 				Przejdź do aplikacji
-			</button>
+			</button> */}
 			<Input
 				required
 				className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
