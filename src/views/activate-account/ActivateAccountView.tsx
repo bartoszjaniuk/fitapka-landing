@@ -49,7 +49,13 @@ const useActivateAccountMutation = () => {
 
 type ActivateAccountFormFieldValues = z.infer<typeof activateAccountFormSchema>;
 
-export const ActivateAccountView = () => {
+export const ActivateAccountView = ({
+	token,
+	email,
+}: {
+	token: string;
+	email: string;
+}) => {
 	const { activateAccount, isLoading } = useActivateAccountMutation();
 	const {
 		handleSubmit,
@@ -72,6 +78,15 @@ export const ActivateAccountView = () => {
 
 	return (
 		<form className="flex flex-col gap-4" onSubmit={onSubmit}>
+			<button
+				onClick={() =>
+					(window.location.href = `fitapka://?token=${token}&email=${email}`)
+				}
+				className="text-background bg-primary hover:opacity-90 focus:ring-4 focus:ring-primary font-medium rounded-lg text-md px-5 py-2.5 me-2 mb-2"
+				type="button"
+			>
+				Przejdź do aplikacji
+			</button>
 			<Input
 				required
 				className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"

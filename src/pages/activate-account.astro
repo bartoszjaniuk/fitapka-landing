@@ -16,7 +16,7 @@ if (!token || !email) {
 			<div>
 				<h1 class="text-5xl">Wpisz hasło <br /> i aktywuj konto</h1>
 			</div>
-			<ActivateAccountView client:load />
+			<ActivateAccountView token={token} email={email} client:load />
 		</div>
 	</main>
 </Layout>
