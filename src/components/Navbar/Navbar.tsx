@@ -1,28 +1,30 @@
-import React from "react";
-
 export const Navbar = () => {
-  return (
-    <div className="w-full responsive-padding fixed">
-      <nav
-        className="
-    container
-    bg-background
-    flex
-    items-center 
-    justify-center
-    max-w-[430px]
-gap-8 
-rounded-lg"
-      >
-        <button>
-          <img src="/assets/logo-transparent.png" className="w-16" />
-        </button>
-        <ul className="flex gap-8">
-          <li>MISJA</li>
-          <li>OFERUJEMY</li>
-          <li>POBIERZ</li>
-        </ul>
-      </nav>
-    </div>
-  );
+	return (
+		<div className="w-full fixed z-[100]">
+			<div className="container responsive-padding mx-auto">
+				<nav
+					className="
+				flex 
+				items-center 
+		w-fit
+	gap-8 
+    rounded-lg
+    bg-transparent
+	
+	
+
+    "
+				>
+					<button>
+						<img src="/assets/logo-transparent.png" className="w-16" />
+					</button>
+					<ul className="flex gap-8 pr-4">
+						<li>MISJA</li>
+						<li>OFERUJEMY</li>
+						<li>POBIERZ</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	);
 };
