@@ -52,10 +52,6 @@ a {
 		@apply px-6 lg:px-12;
 	}
 
-	.responsive-padding-y {
-		@apply py-1 lg:py-6;
-	}
-
 	.responsive-padding-screen {
 		@apply px-6 lg:px-12 xl:px-44;
 	}

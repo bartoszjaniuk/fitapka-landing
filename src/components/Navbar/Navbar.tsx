@@ -9,7 +9,9 @@ export const Navbar = () => {
 		w-fit
 	gap-8 
     rounded-lg
-    bg-transparent
+    bg-layout
+	bg-opacity-90
+	
 	
 	
 
