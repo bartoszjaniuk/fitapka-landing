@@ -74,10 +74,6 @@ a {
 		@apply text-2xl lg:text-3xl xl:text-3xl;
 	}
 
-	.burger {
-		@apply flex w-10 h-[30px] lg:hidden flex-col items-end justify-between bg-transparent p-1 cursor-pointer;
-	}
-
 	.opened {
 		overflow-x: hidden;
 		transition: transform 2s ease;
@@ -97,7 +93,7 @@ a {
 	}
 
 	.line {
-		@apply h-[2px] w-full bg-gray-900;
+		@apply h-[2px] w-full bg-primary;
 		transition: opacity 0.2s 0.2s ease, transform 0.2s 0.2s ease;
 
 		&:nth-child(2) {

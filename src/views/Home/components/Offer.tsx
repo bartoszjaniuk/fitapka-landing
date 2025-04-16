@@ -1,5 +1,3 @@
-import React from "react";
-
 const DATA = {
 	title: "OFERUJEMY",
 	imageUrl: "/assets/offer.png",
@@ -29,27 +27,34 @@ const DATA = {
 
 export const Offer = () => {
 	return (
-		<section className="bg-background py-24">
+		<section className="bg-background py-8" id="oferta">
 			<div className="container mx-auto">
-				<div className="responsive-padding flex gap-8">
+				<div className="responsive-padding flex flex-col lg:flex-row gap-8">
 					<div className="flex flex-col gap-16">
 						<div className="flex flex-col gap-4">
-							<h1 className="uppercase text-4xl font-bold">{DATA.title}</h1>
-							<p className="font-normal">{DATA.description}</p>
+							<h1 className="uppercase text-4xl lg:text-5xl font-bold">
+								{DATA.title}
+							</h1>
+							<p className="text-2xl lg:text-base font-normal">
+								{DATA.description}
+							</p>
 						</div>
 
 						<ul className="flex flex-col gap-5">
 							{DATA.steps.map((step, i) => (
 								<li
-									className="border border-primary p-5 rounded-lg even:bg-primary even:text-background flex gap-2 w-full selection:even:bg-white"
+									className="border border-primary p-5 rounded-lg even:bg-primary even:text-background flex items-start gap-2 w-full selection:even:bg-white"
 									key={step.title}
 								>
-									<div className="min-w-8 ">
-										<img src={step.icon} />
-									</div>
+									<img className="min-w-10 lg:min-w-8" src={step.icon} />
+
 									<div className="flex flex-col gap-2">
-										<h5 className="font-bold">{step.title}</h5>
-										<p className="font-medium">{step.description}</p>
+										<h5 className="text-2xl lg:text-xl font-bold">
+											{step.title}
+										</h5>
+										<p className="text-lg lg:text-base font-medium">
+											{step.description}
+										</p>
 									</div>
 								</li>
 							))}

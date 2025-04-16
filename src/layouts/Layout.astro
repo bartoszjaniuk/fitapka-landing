@@ -14,9 +14,9 @@ import "../styles/globals.css";
 		<meta name="apple-itunes-app" content="app-id=6738386191" />
 		<title>FitApka</title>
 	</head>
-	<body class="pt-1 lg:pt-6">
-		<Navbar />
-		<div class="min-h-screen">
+	<body>
+		<Navbar client:load />
+		<div class="min-h-screen lg:pt-6">
 			<div class="min-h-screen h-full"><slot /></div>
 		</div>
 		<Footer />

@@ -23,11 +23,11 @@ const DATA = {
 
 export const Mission = () => {
 	return (
-		<main className="container mx-auto pb-8">
+		<main className="container mx-auto pb-8" id="misja">
 			<div className="responsive-padding mt-8 flex flex-col gap-16">
 				<div className="flex flex-col gap-4">
-					<h1 className="uppercase text-5xl font-bold">Misja</h1>
-					<p>
+					<h1 className="uppercase text-4xl lg:text-5xl font-bold">Misja</h1>
+					<p className="text-2xl lg:text-base">
 						Celem aplikacji Trinder jest pomoc w poszukiwaniach twojego nowego,
 						wymarzonego trenera personalnego lub podopiecznego, którego będziesz
 						mógł poprowadzić w czasie jego treningu. Wybierz ścieżkę która cię
@@ -45,8 +45,8 @@ const Toggler = () => {
 	const user = isChecked ? "trainer" : "trainee";
 	const data = DATA[user];
 	return (
-		<div className="flex gap-4">
-			<div className="h-[481px] bg-primary rounded-lg w-full  flex flex-col">
+		<div className="flex flex-col lg:flex-row gap-4 ">
+			<div className="h-[481px] bg-primary rounded-lg w-full flex flex-col">
 				<div className="flex p-4 ">
 					<label className="inline-flex items-center me-5 cursor-pointer">
 						<input
@@ -76,8 +76,8 @@ const Toggler = () => {
 const Step = ({ message, step }: { message: string; step: number }) => {
 	return (
 		<div className="bg-black rounded-lg p-8 flex flex-col gap-3 h-full">
-			<h5 className="font-bold text-xl">Krok {step}</h5>
-			<p>{message}</p>
+			<h5 className="font-bold text-2xl lg:text-xl">Krok {step}</h5>
+			<p className="text-lg lg:text-base">{message}</p>
 		</div>
 	);
 };
