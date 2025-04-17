@@ -1,7 +1,7 @@
 export const Footer = () => {
 	return (
 		<div className="w-full bg-layout responsive-padding">
-			<footer className="h-20 w-full flex justify-between items-center">
+			<footer className="h-20 w-full flex flex-col lg:flex-row justify-between items-center py-8">
 				<button>
 					<img src="/assets/logo-transparent.png" className="w-16" />
 				</button>

@@ -29,14 +29,12 @@ const DATA = {
 
 export const Offer = () => {
 	return (
-		<section className="bg-background py-8" id="oferta">
+		<section className="bg-background py-8 scroll-m-20" id="oferta">
 			<div className="container mx-auto">
 				<div className="responsive-padding flex flex-col h-full items-center lg:flex-row gap-8">
 					<div className="flex flex-col gap-16">
 						<div className="flex flex-col gap-4">
-							<h1 className="uppercase text-4xl lg:text-5xl font-bold">
-								{DATA.title}
-							</h1>
+							<h1 className="uppercase text-5xl font-bold">{DATA.title}</h1>
 							<p className="text-2xl lg:text-base font-normal">
 								{DATA.description}
 							</p>

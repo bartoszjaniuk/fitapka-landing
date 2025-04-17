@@ -23,10 +23,10 @@ const DATA = {
 
 export const Mission = () => {
 	return (
-		<main className="container mx-auto pb-8" id="misja">
+		<main className="container mx-auto pb-8 scroll-m-20" id="misja">
 			<div className="responsive-padding mt-8 flex flex-col gap-16">
 				<div className="flex flex-col gap-4">
-					<h1 className="uppercase text-4xl lg:text-5xl font-bold">Misja</h1>
+					<h1 className="uppercase text-5xl font-bold">Misja</h1>
 					<p className="text-2xl lg:text-base">
 						Celem aplikacji FitApka jest pomoc w poszukiwaniach twojego nowego,
 						wymarzonego trenera personalnego lub podopiecznego, którego będziesz
@@ -76,7 +76,7 @@ const Toggler = () => {
 const Step = ({ message, step }: { message: string; step: number }) => {
 	return (
 		<div className="bg-black rounded-lg p-8 flex flex-col gap-3 h-full">
-			<h5 className="font-bold text-2xl lg:text-xl">Krok {step}</h5>
+			<h5 className="font-bold text-2xl">Krok {step}</h5>
 			<p className="text-lg lg:text-base">{message}</p>
 		</div>
 	);

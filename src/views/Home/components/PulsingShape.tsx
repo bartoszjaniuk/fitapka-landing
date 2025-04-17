@@ -7,7 +7,7 @@ export const PulsingShape = ({ children }: PropsWithChildren) => {
 			{/* Shape 1 - slow, soft pulse with tiny rotation */}
 			<div className="absolute top-[10%] left-1/2 -translate-x-1/2">
 				<motion.svg
-					className="w-96 h-96 lg:w-[501px] lg:h-[600px]"
+					className="w-80 h-96 lg:w-[501px] lg:h-[600px]"
 					viewBox="0 0 501 600"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ export const PulsingShape = ({ children }: PropsWithChildren) => {
 
 			<div className="absolute top-0 left-1/2 -translate-x-1/2">
 				<motion.svg
-					className="w-96 h-96 lg:w-[501px] lg:h-[600px]"
+					className="w-80 h-96 lg:w-[501px] lg:h-[600px]"
 					viewBox="0 0 501 600"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ export const PulsingShape = ({ children }: PropsWithChildren) => {
 
 			<div className="absolute top-[10%] left-1/2 -translate-x-1/2">
 				<motion.svg
-					className="w-96 h-96 lg:w-[501px] lg:h-[600px]"
+					className="w-80 h-96 lg:w-[501px] lg:h-[600px]"
 					viewBox="0 0 501 600"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
