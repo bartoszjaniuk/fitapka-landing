@@ -71,7 +71,7 @@ const ResponsiveLinksWithHamburger = () => {
 				{MENU_LINKS.map((link, index) => {
 					return (
 						<a
-							className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-primary after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-center"
+							className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-primary after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-center font-plus-jakarta-sans"
 							key={index}
 							href={link.path}
 						>
@@ -105,7 +105,7 @@ export const Navbar = () => {
 					<ul className="flex gap-8 pr-4">
 						{MENU_LINKS.map((link, index) => (
 							<a
-								className="relative text-xl md:text-base w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-primary after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-center whitespace-nowrap"
+								className="relative text-xl md:text-base w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-primary after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-center whitespace-nowrap font-plus-jakarta-sans"
 								key={index}
 								href={link.path}
 							>

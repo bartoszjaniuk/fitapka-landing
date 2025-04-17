@@ -12,6 +12,9 @@ export default {
 				primaryDarker: "#96D29D",
 				primaryLighter: "#C3F2C8",
 			},
+			fontFamily: {
+				"plus-jakarta-sans": "Plus Jakarta Sans",
+			},
 		},
 	},
 	plugins: [],

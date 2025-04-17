@@ -28,7 +28,7 @@ export const Mission = () => {
 				<div className="flex flex-col gap-4">
 					<h1 className="uppercase text-4xl lg:text-5xl font-bold">Misja</h1>
 					<p className="text-2xl lg:text-base">
-						Celem aplikacji Trinder jest pomoc w poszukiwaniach twojego nowego,
+						Celem aplikacji FitApka jest pomoc w poszukiwaniach twojego nowego,
 						wymarzonego trenera personalnego lub podopiecznego, którego będziesz
 						mógł poprowadzić w czasie jego treningu. Wybierz ścieżkę która cię
 						interesuje i zobacz jakie to proste!
