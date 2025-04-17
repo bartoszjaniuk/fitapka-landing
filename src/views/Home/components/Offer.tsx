@@ -1,3 +1,5 @@
+import { PulsingShape } from "./PulsingShape";
+
 const DATA = {
 	title: "OFERUJEMY",
 	imageUrl: "/assets/offer.png",
@@ -29,7 +31,7 @@ export const Offer = () => {
 	return (
 		<section className="bg-background py-8" id="oferta">
 			<div className="container mx-auto">
-				<div className="responsive-padding flex flex-col lg:flex-row gap-8">
+				<div className="responsive-padding flex flex-col h-full items-center lg:flex-row gap-8">
 					<div className="flex flex-col gap-16">
 						<div className="flex flex-col gap-4">
 							<h1 className="uppercase text-4xl lg:text-5xl font-bold">
@@ -60,9 +62,10 @@ export const Offer = () => {
 							))}
 						</ul>
 					</div>
-					<div className="flex justify-center items-center w-full">
-						<img className="" src={DATA.imageUrl} />
-					</div>
+
+					<PulsingShape>
+						<img src={DATA.imageUrl} />
+					</PulsingShape>
 				</div>
 			</div>
 		</section>
