@@ -5,8 +5,10 @@ import { Input } from "../../components/Input/Input";
 import * as React from "react";
 import { useEffect } from "react";
 
-const BASE_URL = "http://3.79.57.202";
+// const BASE_URL = "http://3.79.57.202";
+const BASE_URL = "https://fitapka.pl";
 const RESET_PASSWORD = "api/user/reset-password";
+const VERIFY_TOKEN = "api/user/verify-token";
 
 const resetPasswordFormSchema = z
 	.object({
@@ -53,13 +55,8 @@ const useResetPasswordMutation = () => {
 
 type ResetPasswordFormFieldValues = z.infer<typeof resetPasswordFormSchema>;
 
-export const ResetPasswordView = ({
-	token,
-	email,
-}: {
-	token: string;
-	email: string;
-}) => {
+export const Content = (props: { token: string; email: string }) => {
+	const { token, email } = props;
 	const { resetPassword, isLoading } = useResetPasswordMutation();
 	const {
 		handleSubmit,
@@ -133,4 +130,54 @@ export const ResetPasswordView = ({
 			</button>
 		</form>
 	);
+};
+
+const useVerifyTokenMutation = () => {
+	const [isLoading, setIsLoading] = React.useState(false);
+	const [isVerified, setIsVerified] = React.useState(false);
+
+	const mutate = async (token: string) => {
+		try {
+			setIsLoading(true);
+			const response = await fetch(`${BASE_URL}/${VERIFY_TOKEN}`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				body: JSON.stringify({ token }),
+			});
+
+			if (response.ok) {
+				setIsVerified(true);
+			} else {
+				setIsVerified(false);
+			}
+		} catch (error) {
+			console.log("Wystapil error", error);
+		} finally {
+			setIsLoading(false);
+		}
+	};
+
+	return { isLoading, isVerified, mutate };
+};
+
+export const ResetPasswordView = (props: { token: string; email: string }) => {
+	const { token, email } = props;
+	const verifyTokenMutation = useVerifyTokenMutation();
+
+	useEffect(() => {
+		if (token) verifyTokenMutation.mutate(token);
+	}, [token]);
+
+	if (verifyTokenMutation.isLoading) {
+		return <p>Trwa ładowanie...</p>;
+	}
+
+	if (!verifyTokenMutation.isLoading && !verifyTokenMutation.isVerified) {
+		return <p>Token wygasł lub jest nieprawidłowy</p>;
+	}
+
+	return <Content token={token} email={email} />;
 };
