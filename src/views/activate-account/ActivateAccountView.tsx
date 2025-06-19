@@ -5,7 +5,7 @@ import { Input } from "../../components/Input/Input";
 import * as React from "react";
 import { useEffect } from "react";
 
-const BASE_URL = "http://3.79.57.202";
+const BASE_URL = "https://fitapka.pl";
 const ACTIVATE_ACCOUNT = "api/user/activate";
 
 const activateAccountFormSchema = z
