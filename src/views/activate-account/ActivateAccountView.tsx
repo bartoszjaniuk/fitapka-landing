@@ -80,7 +80,7 @@ export const ActivateAccountView = ({
 	useEffect(() => {
 		if (token && email) {
 			console.log("Przekierowanie");
-			window.location.href = `fitapka://?token=${token}&email=${email}`;
+			window.location.href = `fitapka://?token=${token}&email=${email}&action=activate-account`;
 		}
 	}, [token, email]);
 
