@@ -55,82 +55,82 @@ const useResetPasswordMutation = () => {
 
 type ResetPasswordFormFieldValues = z.infer<typeof resetPasswordFormSchema>;
 
-export const Content = (props: { token: string; email: string }) => {
-	const { token, email } = props;
-	const { resetPassword, isLoading } = useResetPasswordMutation();
-	const {
-		handleSubmit,
-		reset,
-		register,
-		formState: { isValid, errors },
-	} = useForm<ResetPasswordFormFieldValues>({
-		resolver: zodResolver(resetPasswordFormSchema),
-		defaultValues: {
-			password: "",
-			confirmPassword: "",
-		},
-	});
+// export const Content = (props: { token: string; email: string }) => {
+// 	const { token, email } = props;
+// 	const { resetPassword, isLoading } = useResetPasswordMutation();
+// 	const {
+// 		handleSubmit,
+// 		reset,
+// 		register,
+// 		formState: { isValid, errors },
+// 	} = useForm<ResetPasswordFormFieldValues>({
+// 		resolver: zodResolver(resetPasswordFormSchema),
+// 		defaultValues: {
+// 			password: "",
+// 			confirmPassword: "",
+// 		},
+// 	});
 
-	const onSubmit = handleSubmit(async (data) => {
-		if (!isValid) return;
-		await resetPassword({
-			email,
-			password: data.password,
-		});
-		reset();
-	});
+// 	const onSubmit = handleSubmit(async (data) => {
+// 		if (!isValid) return;
+// 		await resetPassword({
+// 			email,
+// 			password: data.password,
+// 		});
+// 		reset();
+// 	});
 
-	useEffect(() => {
-		if (token && email) {
-			console.log("Przekierowanie");
-			window.location.href = `fitapka://?token=${token}&email=${email}&action=reset-password`;
-		}
-	}, [token, email]);
+// 	useEffect(() => {
+// 		if (token && email) {
+// 			console.log("Przekierowanie");
+// 			window.location.href = `fitapka://?token=${token}&email=${email}&action=reset-password`;
+// 		}
+// 	}, [token, email]);
 
-	return (
-		<form className="flex flex-col gap-4" onSubmit={onSubmit}>
-			{/* <button
-                onClick={() =>
-                    (window.location.href = `fitapka://?token=${token}&email=${email}`)
-                }
-                className="text-background bg-primary hover:opacity-90 focus:ring-4 focus:ring-primary font-medium rounded-lg text-md px-5 py-2.5 me-2 mb-2"
-                type="button"
-            >
-                Przejdź do aplikacji
-            </button> */}
-			<Input
-				required
-				className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-				type="password"
-				id="password"
-				name="password"
-				register={register}
-				placeholder="Hasło"
-				isError={!!errors.password}
-				errorMessage={errors.password?.message}
-			/>
+// 	return (
+// 		<form className="flex flex-col gap-4" onSubmit={onSubmit}>
+// 			{/* <button
+//                 onClick={() =>
+//                     (window.location.href = `fitapka://?token=${token}&email=${email}`)
+//                 }
+//                 className="text-background bg-primary hover:opacity-90 focus:ring-4 focus:ring-primary font-medium rounded-lg text-md px-5 py-2.5 me-2 mb-2"
+//                 type="button"
+//             >
+//                 Przejdź do aplikacji
+//             </button> */}
+// 			<Input
+// 				required
+// 				className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+// 				type="password"
+// 				id="password"
+// 				name="password"
+// 				register={register}
+// 				placeholder="Hasło"
+// 				isError={!!errors.password}
+// 				errorMessage={errors.password?.message}
+// 			/>
 
-			<Input
-				register={register}
-				id="confirmPassword"
-				name="confirmPassword"
-				required
-				className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-				type="password"
-				placeholder="Powtórz hasło"
-				isError={!!errors.password}
-				errorMessage={errors.password?.message}
-			/>
+// 			<Input
+// 				register={register}
+// 				id="confirmPassword"
+// 				name="confirmPassword"
+// 				required
+// 				className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+// 				type="password"
+// 				placeholder="Powtórz hasło"
+// 				isError={!!errors.password}
+// 				errorMessage={errors.password?.message}
+// 			/>
 
-			<button
-				className="text-background bg-primary hover:opacity-90 focus:ring-4 focus:ring-primary font-medium rounded-lg text-md px-5 py-2.5 me-2 mb-2"
-				type="submit"
-			>
-				{isLoading ? "Trwa resetowanie hasła..." : "Resetuj hasło"}
-			</button>
-		</form>
-	);
-};
+// 			<button
+// 				className="text-background bg-primary hover:opacity-90 focus:ring-4 focus:ring-primary font-medium rounded-lg text-md px-5 py-2.5 me-2 mb-2"
+// 				type="submit"
+// 			>
+// 				{isLoading ? "Trwa resetowanie hasła..." : "Resetuj hasło"}
+// 			</button>
+// 		</form>
+// 	);
+// };
 
 const useVerifyTokenMutation = () => {
 	const [isLoading, setIsLoading] = React.useState(false);
@@ -163,21 +163,38 @@ const useVerifyTokenMutation = () => {
 	return { isLoading, isVerified, mutate };
 };
 
+// export const ResetPasswordView = (props: { token: string; email: string }) => {
+// 	const { token, email } = props;
+// 	const verifyTokenMutation = useVerifyTokenMutation();
+
+// 	useEffect(() => {
+// 		if (token) verifyTokenMutation.mutate(token);
+// 	}, [token]);
+
+// 	if (verifyTokenMutation.isLoading) {
+// 		return <p>Trwa ładowanie...</p>;
+// 	}
+
+// 	if (!verifyTokenMutation.isLoading && !verifyTokenMutation.isVerified) {
+// 		return <p>Token wygasł lub jest nieprawidłowy</p>;
+// 	}
+
+// 	return <Content token={token} email={email} />;
+// };
+
 export const ResetPasswordView = (props: { token: string; email: string }) => {
 	const { token, email } = props;
-	const verifyTokenMutation = useVerifyTokenMutation();
 
 	useEffect(() => {
-		if (token) verifyTokenMutation.mutate(token);
-	}, [token]);
+		if (token && email) {
+			console.log("Przekierowanie");
+			window.location.href = `fitapka://?token=${token}&email=${email}&action=reset-password`;
+		}
+	}, [token, email]);
 
-	if (verifyTokenMutation.isLoading) {
-		return <p>Trwa ładowanie...</p>;
-	}
-
-	if (!verifyTokenMutation.isLoading && !verifyTokenMutation.isVerified) {
-		return <p>Token wygasł lub jest nieprawidłowy</p>;
-	}
-
-	return <Content token={token} email={email} />;
+	return (
+		<div>
+			<p>Otwórz tę witrynę w mobilnej przeglądarce, aby zresetować hasło.</p>
+		</div>
+	);
 };
